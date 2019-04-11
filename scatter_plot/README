@@ -1,0 +1,54 @@
+Open the file in Mozila Firefox browser. 
+Google chorme doesn't allow to read file data from local machine
+===============================================================
+
+===============================================================
+We are reading from the csv file and making the graph. 
+There are many columns in csv file that have used for different purposes.
+
+It has mouse hover option to show message(tulip) in point.
+It has mouse click option for points.
+
+It has mouse hover option to show message in xAxis ticks.
+It has mouse click option for xAxis ticks.
+
+We can use different colors on points.
+We use different point or circle sizes. 
+
+We grouped the Y-axis text into different colors
+==================================================
+==================================================
+To add zoom in x or y axis, you need to comment on two parts.
+
+zoomBeh = d3.behavior.zoom()
+function zoom() {  }
+==================================================
+// Error: If you zoom the x -axis, then we loss the xAxis rotate view
+		  If you zoom the y -axis, then we loss the yAxis text color
+==================================================
+CSV data information:
+X axis: day
+Y axis: y_data
+        [In js file, we define some range to set Y axis based on the data type values (code)]
+
+color:  color is defined in .js file based on color column value 
+		if( d.color ==0) return "green";
+
+		In D3,   there is a default option for color. d3.scale.category10()
+		But, since I didn't use standard D3 scatter plot, I guess category10() didn't work.
+		Or,  even if it works, it sets the color based on its choice. 
+		I can't select specific color.
+
+		var color = d3.scale.category10();	// set color  
+		// category10 is a build in function of D3
+
+
+shape size: weight     
+
+description: name    [showing description on mouse over]
+======================================
+link:
+For dynamic scatter plot: 
+https://c3js.org/samples/chart_scatter.html
+I used the following project as my skeleton
+http://bl.ocks.org/peterssonjonas/4a0e7cb8d23231243e0e	
